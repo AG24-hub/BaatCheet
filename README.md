@@ -3,6 +3,9 @@
 A modern, real-time messaging platform built with the **MERN stack**. BaatCheet enables seamless communication with a focus on speed, security, and a clean user experience.
 
 ---
+## Live site
+https://baatcheet-3cdi.onrender.com
+---
 
 ## 🛠 Tech Stack
 
