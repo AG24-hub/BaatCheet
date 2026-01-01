@@ -2,7 +2,7 @@ import { Button, Dialog, Input, Box, Stack, Portal, Spinner } from "@chakra-ui/r
 import axios from "axios";
 import { useState } from "react";
 import { ChatState } from "../../Context/ChatProvider";
-import UserBadgeItem from "../userAvatar/UserBadgeItem";
+import UserBadgeItem from "../userAvatar/userBadgeItem";
 import UserListItem from "../userAvatar/UserListItem";
 import { TopToaster } from "@/components/ui/toaster";
 
