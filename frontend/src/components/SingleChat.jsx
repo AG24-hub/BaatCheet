@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ChatState } from '@/Context/ChatProvider'
-import { Box, Text, Flex, IconButton, Spinner, Field, Input} from '@chakra-ui/react'
+import { Box, Text, Flex, IconButton, Spinner, Field, Input, Button} from '@chakra-ui/react'
 import { toaster } from './ui/toaster'
 import { getSender, getSenderAll } from '@/config/chatlogic'
 import ProfileModal from './miscellaneous/profileModel'
@@ -94,7 +94,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
   }, [messages])
 
   const sendMessage = async (event)=> {
-    if(event.key === "Enter" && newMessage){
+    if((event.key === "Enter" || event === "click") && newMessage){
       socket.emit("stop typing", selectedChat._id)
       try{
         const config = {
@@ -195,8 +195,10 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
           }}>
           <Lottie options={defaultOptions} width={70} style={{ marginBottom: 15, marginLeft: 0 }}/>
           </div>
-          <Input variant="filled" bg="#F8F9FA" placeholder="Enter a message.." value={newMessage} onChange={typingHandler} />
-                 
+          <Flex w="100%" alignItems="center">
+            <Input variant="filled" bg="#F8F9FA" flex="1"  mr={2} placeholder="Enter a message.." value={newMessage} onChange={typingHandler} />
+            <Button bg="teal" onClick={() => sendMessage("click")}><i className="fa-solid fa-paper-plane"></i></Button>      
+          </Flex>      
         </Field.Root>
       </Box>
       </>
