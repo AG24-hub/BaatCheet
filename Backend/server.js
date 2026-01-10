@@ -47,12 +47,19 @@ app.use(errorHandler)
 const PORT = process.env.PORT || 5000
 const server = app.listen(PORT, console.log("App listening"));
 
-const io = require("socket.io")(server, {
+/*const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
         origin: "http://localhost:5173" //frontend url
     }
-})
+})*/
+
+const io = require("socket.io")(server, {
+  pingTimeout: 60000,
+  cors: {
+    origin: "*",
+  },
+});
 
 io.on("connection", (socket)=> {
     console.log("connected to socket.io")
